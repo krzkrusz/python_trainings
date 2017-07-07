@@ -8,7 +8,9 @@ Level = namedtuple("Level", ['name','value'])
 ROBOT = Level(name='ROBOT', value = 30)
 JASTRZAB = Level(name='JASTRZAB', value = 25)
 
-def test_kret_level(driver):
+@pytest.mark.parametrize("level", [JASTRZAB,ROBOT])
+
+def test_kret_level(driver,level):
     eye_game = EyeGamePage(driver)
     eye_game.load()
     #eye_game.click_chosenone()
